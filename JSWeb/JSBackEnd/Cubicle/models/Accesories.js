@@ -1,6 +1,30 @@
-const Model = require("./Model");
+const mongoose = require('mongoose');
 
-class Accessory extends Model{
+const accessorySchema = new mongoose.Schema({
 
-}
-module.exports = Accessory;
+    id: mongoose.Types.ObjectId,
+
+    name: {
+        type: String,
+        required: true,
+    },
+    imageUrl: {
+        type: String,
+        required: true,
+        validate: /^https?/,
+    },
+    description: {
+        type: String,
+        required: true,
+        maxlength: 50,
+    },
+    // cubes: [
+    //     {
+    //         type: mongoose.Types.ObjectId,
+    //         ref: 'Cube'
+    //     }
+    // ]
+});
+
+
+module.exports = mongoose.model('Accessory', accessorySchema);

@@ -1,7 +1,8 @@
+
+
 const mongoose = require('mongoose');
 
 const cubeSchema = new mongoose.Schema({
-
     name: {
         type: String,
         required: true,
@@ -16,17 +17,18 @@ const cubeSchema = new mongoose.Schema({
         required: true,
         validate: /^https?/,
     },
-    difficultyLevel: Number,
+    difficultyLevel: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 6,
+    },
+    accessories: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Accessory'
+        }
+    ]
 })
 
-class Cube {
-    constructor(id, name, description, imageUrl, difficultyLevel) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.imageUrl = imageUrl;
-        this.difficultyLevel = difficultyLevel;
-    }
-}
-
-module.exports = Cube;
+module.exports = mongoose.model('Cube', cubeSchema);

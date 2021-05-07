@@ -1,5 +1,5 @@
 const Cube = require('../models/Cube');
-const uniqid = require('uniqid');
+
 
 
 function getAll(query) {
@@ -22,16 +22,9 @@ function getOne(id) {
 }
 
 function create(data) {
-    let cube = new Cube(
-        uniqid(),
-        data.name,
-        data.description,
-        data.imageUrl,
-        data.difficultyLevel
-    );
+    let cube = new Cube(data);
 
     return cube.save();
-
 }
 
 module.exports = {
