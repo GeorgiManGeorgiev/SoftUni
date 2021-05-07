@@ -1,11 +1,11 @@
 
 let productsDb = require('../config/products.json');
-
+const fs = require("fs/promises");
+const path = require('path');
 
 class Model{
     save() {
         productsDb.push(this);
-
         return fs.writeFile(
             path.join(__dirname, '../config/products.json'),
             JSON.stringify(productsDb),
@@ -17,9 +17,7 @@ class Model{
     }
 
     static getOne(id) {
-        let result =  productsDb.find(x => x.id = id);
-        console.log(result);
-        return result;
+        return  productsDb.find(x => x.id = id);
     }
 }
 

@@ -12,6 +12,7 @@ router.get('/', (req,
 router.get('/create', (req,
                        res) => {
     res.render('create', {title: 'Create'});
+
 });
 router.post('/create', validateProduct, (req,
                                          res) => {
@@ -21,10 +22,13 @@ router.post('/create', validateProduct, (req,
 
 });
 
-router.get('/details/:productId',  (req,
+router.get('/details/:productId',   (req,
                                    res) => {
+
     let product = productService.getOne(req.params.productId);
-    res.render('details', {title: 'Product Details', product});
+     res.render('details', {title: 'Product Details', product});
+
+    console.log(`---------------`);
 });
 
 module.exports = router;

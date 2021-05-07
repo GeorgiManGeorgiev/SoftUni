@@ -1,6 +1,6 @@
 const Cube = require('../models/Cube');
 const uniqid = require('uniqid');
-const productData = require('../data/productData');
+
 
 function getAll(query) {
     let products = Cube.getAll();
@@ -18,7 +18,7 @@ function getAll(query) {
 }
 
 function getOne(id) {
-    return   Cube.getOne(id);
+    return Cube.getOne(id);
 }
 
 function create(data) {

@@ -1,12 +1,26 @@
-const fs = require('fs/promises')
-const path = require('path');
-let productsDb = require('../config/products.json');
-const Model = require("./Model");
+const mongoose = require('mongoose');
 
+const cubeSchema = new mongoose.Schema({
 
-class Cube extends Model{
+    name: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+        maxlength: 50,
+    },
+    imageUrl: {
+        type: String,
+        required: true,
+        validate: /^https?/,
+    },
+    difficultyLevel: Number,
+})
+
+class Cube {
     constructor(id, name, description, imageUrl, difficultyLevel) {
-        super();
         this.id = id;
         this.name = name;
         this.description = description;
@@ -14,4 +28,5 @@ class Cube extends Model{
         this.difficultyLevel = difficultyLevel;
     }
 }
+
 module.exports = Cube;
