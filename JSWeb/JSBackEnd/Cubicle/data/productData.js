@@ -9,6 +9,7 @@ module.exports = {
     getOne(id){
         return productsDb.find(x => x.id = id);
     },
+
     create(product) {
         productsDb.push(product);
 

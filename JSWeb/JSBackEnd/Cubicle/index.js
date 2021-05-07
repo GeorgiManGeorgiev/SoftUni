@@ -10,4 +10,4 @@ require('./config/express')(app);
 
 app.use(routes);
 
-app.listen(config.PORT, console.log(`Listening on port ${config.PORT}...`));
+app.listen(config.PORT,()=> console.log(`Listening on port ${config.PORT}...`));
