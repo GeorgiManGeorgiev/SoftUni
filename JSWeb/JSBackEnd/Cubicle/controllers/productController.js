@@ -4,10 +4,17 @@ const {validateProduct} = require('./helpers/productHelper');
 const router = Router();
 
 router.get('/', (req,
+                         res) => {
+    res.redirect('/products');
+});
+router.get('/products', (req,
                  res) => {
-    let products = productService.getAll(req.query);
+     productService.getAll(req.query)
+        .then(products=>{
+            res.render('home', {title: 'Browse', products});
+        }).catch(() => res.status(500).end())
 
-    res.render('home', {title: 'Browse', products});
+
 });
 router.get('/create', (req,
                        res) => {
@@ -22,13 +29,13 @@ router.post('/create', validateProduct, (req,
 
 });
 
-router.get('/details/:productId',   (req,
+router.get('/products/details/:productId',   async (req,
                                    res) => {
 
-    let product = productService.getOne(req.params.productId);
+    let product = await productService.getOne(req.params.productId);
+
      res.render('details', {title: 'Product Details', product});
 
-    console.log(`---------------`);
 });
 
 module.exports = router;
