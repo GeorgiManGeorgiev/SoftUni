@@ -38,4 +38,7 @@ router.get('/products/details/:productId',   async (req,
 
 });
 
+
+
+
 module.exports = router;
