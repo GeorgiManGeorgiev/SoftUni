@@ -1,8 +1,6 @@
-
-
 const mongoose = require('mongoose');
 
-const cubeSchema = new mongoose.Schema({
+const cubeScheme = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,7 +8,7 @@ const cubeSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
-        maxlength: 50,
+        maxlength: 50
     },
     imageUrl: {
         type: String,
@@ -23,12 +21,14 @@ const cubeSchema = new mongoose.Schema({
         min: 1,
         max: 6,
     },
-    accessories: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Accessory'
-        }
-    ]
-})
+    accessories: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Accessory'
+    }],
+    creator: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    }
+});
 
-module.exports = mongoose.model('Cube', cubeSchema);
+module.exports = mongoose.model('Cube', cubeScheme);

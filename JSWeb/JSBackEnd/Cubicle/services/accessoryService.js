@@ -1,4 +1,4 @@
-const Accessory = require('../models/Accesories');
+const Accessory = require('../models/Accessory');
 
 function getAll() {
     return Accessory.find().lean();

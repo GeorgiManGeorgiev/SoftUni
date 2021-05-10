@@ -1,21 +1,18 @@
-// const express = require('express');
-// const Router = express.Router;
-// //OR
-// const {Router} = require('express');
-// //OR
-// const Router = require('express').Router;
-const Router = require('express').Router;
+const { Router } = require('express');
 
 const productController = require('./controllers/productController');
-const aboutController = require('./controllers/aboutController');
 const accessoryController = require('./controllers/accessoryController');
+const homeController = require('./controllers/homeController');
+const authController = require('./controllers/authController');
 
 const router = Router();
 
-router.use('/about',aboutController)
-router.use('/', productController);
-router.use('/accessories',accessoryController)
-router.get('*',(req,res)=>{
+router.use('/', homeController);
+router.use('/auth', authController);
+router.use('/products', productController);
+router.use('/accessories', accessoryController)
+router.get('*', (req, res) => {
     res.render('404');
 });
+
 module.exports = router;
