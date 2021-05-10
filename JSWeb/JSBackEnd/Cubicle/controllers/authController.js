@@ -14,7 +14,7 @@ router.post('/register',async (req,res)=>{
 //     }catch (error){
 
 
-    }
+    // }
 
 
     res.redirect('/auth/register');
