@@ -9,7 +9,7 @@ const config = {
     production: {
         PORT: 80,
         DB_CONNECTION: 'insert mongodb atlas connection here',
-        SALT_ROUNDS: 2,
+        SALT_ROUNDS: 10,
         SECRET: 'navuhodonosor',
         COOKIE_NAME: 'USER_SESSION',
     }
