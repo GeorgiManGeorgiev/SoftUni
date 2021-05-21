@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
 
 //01 calculateFactorial
 
@@ -19,6 +19,16 @@ public class Main {
 //        Integer[] memory = new Integer[6];
 //        generateBitVector(memory, 0);
 
+
+// 04 backtracking
+        int rows = Integer.parseInt(scanner.nextLine());
+        int cols = Integer.parseInt(scanner.nextLine());
+        char[][] labyrinth = new char[rows][cols];
+        for (int row = 0; row < rows; row++) {
+            labyrinth[row] = scanner.nextLine().toCharArray();
+        }
+
+        findPath(labyrinth,0,0);
 
     }
 
@@ -68,6 +78,14 @@ public class Main {
             memory[index] = i;
             generateBitVector(memory, index + 1);
         }
+    }
+
+    private static void findPath(char[][] labyrinth, int row, int col) {
+
+        if (isInBounds(labyrinth,row,col)) {
+            }
+        }
+
     }
 
 }
