@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
 
 });
 
-userSchema.pre('validate',function (next){
+userSchema.pre('save',function (next){
 
     bcrypt.genSalt(SALT_ROUNDS)
         .then(salt=> bcrypt.hash(this.password,salt))

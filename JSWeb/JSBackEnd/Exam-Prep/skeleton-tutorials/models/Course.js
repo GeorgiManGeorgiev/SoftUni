@@ -38,6 +38,13 @@ const courseSchema = new mongoose.Schema({
 
 
 });
+courseSchema.pre('validate',function (next){
+
+    this.createdAt = new Date();
+
+    next();
+
+});
 
 
 
