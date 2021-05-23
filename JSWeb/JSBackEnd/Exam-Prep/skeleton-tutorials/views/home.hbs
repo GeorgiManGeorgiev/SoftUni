@@ -1,113 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Express Retake Exam January 2019</title>
-    <link href="../static/css/site.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand">Video Tutorials</a>
-
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome, {{username}}</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-
-            </ul>
-        </nav>
-
-        <section class="notifications">
-            <p class="notification-message">Message...</p>
+<main>
+    {{#if isAuth}}
+        <h1 class="text-center">Courses</h1>
+        <section>
+            <a href="/course/create" class="btn btn-warning ">Create Course</a>
+            <form class="search float-right">
+                <label>Search: </label>
+                <input type="text">
+                <input type="submit" class="btn btn-info" value="Search">
+            </form>
         </section>
+    {{else}}
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Video Tutorials</h1>
+                <p class="lead">Start Self-Study Today: It'll Change Your Life</p>
+            </div>
+        </div>
+        <h1 class="text-center">Top Courses</h1>
+    {{/if}}
 
-        <main>
-            <h1 class="text-center">Courses</h1>
-            <section>
-                <a href="/course/create" class="btn btn-warning ">Create Course</a>
-                <form class="search float-right">
-                    <label>Search: </label>
-                    <input type="text">
-                    <input type="submit" class="btn btn-info" value="Search">
-                </form>
-            </section>
+    <div class="container mt-3">
+        <div class="row ">
+            <div class="card-deck d-flex justify-content-center">
+                <div class="card mb-4">
+                    <img class="card-img-top"
+                         src="https://res.cloudinary.com/practicaldev/image/fetch/s---orRrG_---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/5vzr2cps82xkoamlm9qy.png"
+                         alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">ExpressJS</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href="">
+                            <button type="button" class="btn btn-info">Details</button>
+                        </a>
+                        <small class="float-right">Date...</small>
+                    </div>
+                </div>
 
-            <div class="container mt-3">
-                <div class="row ">
-                    <div class="card-deck d-flex justify-content-center">
-                        <div class="card mb-4">
-                            <img class="card-img-top"
-                                src="https://blog.cyberpanel.net/wp-content/uploads/2019/03/express-js-cyberpanel.jpeg"
-                                alt="Card image cap" width="400">
-                            <div class="card-body">
-                                <h4 class="card-title">ExpressJS</h4>
-                            </div>
-                            <div class="card-footer">
-                                <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                                <small class="float-right">Date...</small>
-                            </div>
-                        </div>
+                <div class="card mb-4">
+                    <img class="card-img-top"
+                         src="https://colorlib.com/wp/wp-content/uploads/sites/2/angular-logo.png"
+                         alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">Angular</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href="">
+                            <button type="button" class="btn btn-info">Details</button>
+                        </a>
+                        <small class="float-right">Date...</small>
+                    </div>
+                </div>
 
-                        <div class="card mb-4">
-                            <img class="card-img-top"
-                                src="https://colorlib.com/wp/wp-content/uploads/sites/2/angular-logo.png"
-                                alt="Card image cap" width="400">
-                            <div class="card-body">
-                                <h4 class="card-title">Angular</h4>
-                            </div>
-                            <div class="card-footer">
-                                <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                                <small class="float-right">Date...</small>
-                            </div>
-                        </div>
-
-                        <div class="card mb-4">
-                            <img class="card-img-top"
-                                src="http://blog.addthiscdn.com/wp-content/uploads/2014/11/addthis-react-flux-javascript-scaling.png"
-                                alt="Card image cap" width="400">
-                            <div class="card-body">
-                                <h4 class="card-title">React</h4>
-                            </div>
-                            <div class="card-footer">
-                                <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                                <small class="float-right">Date...</small>
-                            </div>
-                        </div>
+                <div class="card mb-4">
+                    <img class="card-img-top"
+                         src="https://img2.exportersindia.com/product_images/bc-full/2020/4/7004235/react-js-course-1586418353-5364397.jpg"
+                         alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">React</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href="">
+                            <button type="button" class="btn btn-info">Details</button>
+                        </a>
+                        <small class="float-right">Date...</small>
                     </div>
                 </div>
             </div>
-            <h3 class="text-center">No courses...</h3>
-        </main>
-
-        <footer class="page-footer font-small">
-            <div class="footer-copyright text-center py-3">© 2019
-                <a href="https://softuni.bg/trainings/2255/expressjs-fundamentals-january-2019">Express Fundamentals</a>
-            </div>
-        </footer>
-
+        </div>
     </div>
-</body>
+    <h3 class="text-center">No courses...</h3>
 
-</html>
+</main>
+
