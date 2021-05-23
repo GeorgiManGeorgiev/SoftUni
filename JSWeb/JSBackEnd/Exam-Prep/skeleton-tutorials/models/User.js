@@ -13,13 +13,16 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 5
-    }
+    },
+    enrolledCourses: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Course',
+    }]
 
 
 });
 
-userSchema.pre('save',function (next){
+userSchema.pre('validate',function (next){
 
     bcrypt.genSalt(SALT_ROUNDS)
         .then(salt=> bcrypt.hash(this.password,salt))
