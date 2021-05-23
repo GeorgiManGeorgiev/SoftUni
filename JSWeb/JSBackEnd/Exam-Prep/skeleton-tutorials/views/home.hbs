@@ -18,58 +18,18 @@
         </div>
         <h1 class="text-center">Top Courses</h1>
     {{/if}}
-
-    <div class="container mt-3">
-        <div class="row ">
-            <div class="card-deck d-flex justify-content-center">
-                <div class="card mb-4">
-                    <img class="card-img-top"
-                         src="https://res.cloudinary.com/practicaldev/image/fetch/s---orRrG_---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/5vzr2cps82xkoamlm9qy.png"
-                         alt="Card image cap" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">ExpressJS</h4>
+    {{#if courses}}
+        <div class="container mt-3">
+            <div class="row ">
+                {{#each courses}}
+                    <div class="card-deck d-flex justify-content-center">
+                        {{>course isAuth=../isAuth}}
                     </div>
-                    <div class="card-footer">
-                        <a href="">
-                            <button type="button" class="btn btn-info">Details</button>
-                        </a>
-                        <small class="float-right">Date...</small>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <img class="card-img-top"
-                         src="https://colorlib.com/wp/wp-content/uploads/sites/2/angular-logo.png"
-                         alt="Card image cap" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">Angular</h4>
-                    </div>
-                    <div class="card-footer">
-                        <a href="">
-                            <button type="button" class="btn btn-info">Details</button>
-                        </a>
-                        <small class="float-right">Date...</small>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <img class="card-img-top"
-                         src="https://img2.exportersindia.com/product_images/bc-full/2020/4/7004235/react-js-course-1586418353-5364397.jpg"
-                         alt="Card image cap" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">React</h4>
-                    </div>
-                    <div class="card-footer">
-                        <a href="">
-                            <button type="button" class="btn btn-info">Details</button>
-                        </a>
-                        <small class="float-right">Date...</small>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
-    </div>
-    <h3 class="text-center">No courses...</h3>
-
+    {{else}}
+        <h3 class="text-center">No courses...</h3>
+    {{/if}}
 </main>
 

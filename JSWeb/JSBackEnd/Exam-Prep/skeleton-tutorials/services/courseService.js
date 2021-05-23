@@ -1,6 +1,12 @@
 const Course = require('../models/Course');
 
 
+
+
+const getAll = ()=>{
+   return  Course.find({}).lean();
+};
+
 const create = (courseData) => {
 
     let course = new Course(courseData)
@@ -12,6 +18,7 @@ const create = (courseData) => {
 module.exports = {
 
     create,
+    getAll,
 
 }
 
