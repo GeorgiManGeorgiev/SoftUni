@@ -28,9 +28,28 @@ public class Main {
             labyrinth[row] = scanner.nextLine().toCharArray();
         }
 
-        findPath(labyrinth,0,0);
+        findPath(labyrinth, 0, 0);
 
     }
+
+
+    private static void findPath(char[][] labyrinth, int row, int col) {
+
+        if (!isInBounds(labyrinth, row, col)) {
+            return;
+
+        }
+        labyrinth[row][col] = 'V';
+
+        findPath(labyrinth,row,col);
+    }
+
+    private static boolean isInBounds(char[][] labyrinth, int row, int col) {
+        return row < labyrinth.length && row >= 0 && col < labyrinth[row].length && col >= 0;
+    }
+
+
+
 
     private static long calculateFactorial(int n) {
 
@@ -78,14 +97,6 @@ public class Main {
             memory[index] = i;
             generateBitVector(memory, index + 1);
         }
-    }
-
-    private static void findPath(char[][] labyrinth, int row, int col) {
-
-        if (isInBounds(labyrinth,row,col)) {
-            }
-        }
-
     }
 
 }
