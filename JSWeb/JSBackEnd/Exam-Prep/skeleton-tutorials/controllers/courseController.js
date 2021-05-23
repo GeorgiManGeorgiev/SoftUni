@@ -39,4 +39,20 @@ router.post('/create', (
 })
 
 
+router.get('/:courseId/details', (
+    req,
+    res,
+    next) => {
+    courseService.getOne(req.params.courseId)
+        .then(course=>{
+        res.render('courseDetails',{course})
+
+
+
+    }) .catch(next);
+
+
+
+})
+
 module.exports = router;

@@ -2,9 +2,14 @@ const Course = require('../models/Course');
 
 
 
+const getOne = (id)=>{
+    return  Course.findById(id).lean();
+};
+
+
 
 const getAll = ()=>{
-   return  Course.find({}).lean();
+   return  Course.find({}).sort({createdAt:-1}).lean();
 };
 
 const create = (courseData) => {
@@ -19,6 +24,8 @@ module.exports = {
 
     create,
     getAll,
+    getOne,
+
 
 }
 
