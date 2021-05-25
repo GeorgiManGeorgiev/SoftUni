@@ -12,6 +12,7 @@ router.get('/', (req,
         courseService.getAll()
             .then(courses => {
                 courses = courses.map(x => ({...x, createdAt: moment(x.createdAt).format('MM-YYYY, h:mm:ss')}))
+
                 res.render('home', {courses});
             })
             .catch(next);
