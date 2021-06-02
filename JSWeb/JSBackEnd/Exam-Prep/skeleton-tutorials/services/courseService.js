@@ -6,6 +6,15 @@ const getAll = () => {
         .sort({createdAt: -1})
         .lean();
 };
+
+
+const getPopular = (size)=>
+     Course
+        .find()
+        .sort({usersEnrolled: -1})
+        .limit(size)
+        .lean();
+
 const getOne = (id, userId) =>
     Course
         .findById(id)
@@ -45,5 +54,6 @@ module.exports = {
     enrollUser,
     deleteCourse,
     updateOne,
+    getPopular,
 }
 

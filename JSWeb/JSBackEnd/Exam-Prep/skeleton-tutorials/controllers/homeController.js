@@ -8,7 +8,6 @@ router.get('/', (req,
 
 
     if (req.user) {
-
         courseService.getAll()
             .then(courses => {
                 courses = courses.map(x => ({...x, createdAt: moment(x.createdAt).format('MM-YYYY, h:mm:ss')}))
@@ -17,7 +16,12 @@ router.get('/', (req,
             })
             .catch(next);
     }else {
-      res.render('home');
+        courseService.getPopular(3)
+            .then(courses=> {
+                res.render('home', {courses});
+            })
+            .catch(next);
+
 
     }
 
