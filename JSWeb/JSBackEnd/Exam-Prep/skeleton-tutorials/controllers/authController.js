@@ -39,10 +39,10 @@ router.post('/register',
     (req
         , res
         , next) => {
-        const {username, password,repeatPassword} = req.body;
+        const {username, password, repeatPassword} = req.body;
 
-        if (password!=repeatPassword){
-            res.render('register',{error:{message:'Passwords should match!' }})
+        if (password != repeatPassword) {
+            res.render('register', {error: {message: 'Passwords should match!'}})
             return;
         }
 
@@ -50,7 +50,10 @@ router.post('/register',
             .then(createdUser => {
                 res.redirect('/auth/login');
             })
-            .catch(next);
+            .catch(err => {
+                let error = Object.keys(err.errors).map(x => ({message: err.errors[x].message}))[0];
+                res.render('register', {error})
+            });
 
     });
 

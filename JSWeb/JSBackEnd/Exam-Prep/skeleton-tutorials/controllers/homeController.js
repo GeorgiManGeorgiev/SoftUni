@@ -7,8 +7,9 @@ router.get('/', (req,
                  next) => {
 
 
+
     if (req.user) {
-        courseService.getAll()
+        courseService.getAll(req.query.search)
             .then(courses => {
                 courses = courses.map(x => ({...x, createdAt: moment(x.createdAt).format('MM-YYYY, h:mm:ss')}))
 
