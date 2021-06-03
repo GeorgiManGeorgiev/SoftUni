@@ -17,5 +17,13 @@ public class EightQueensPuzzle {
 
     }
 
-    public static void printSolution()
+    public static void printSolution() {
+
+        for (char[] chars : board) {
+            for (char symbol : chars) {
+                System.out.print(symbol + " ");
+            }
+            System.out.println();
+        }
+    }
 }
