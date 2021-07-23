@@ -1,6 +1,7 @@
 package bg.softuni.lection2.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,7 @@ public class TestController {
 
     final Animal animal;
 
-    public TestController(Animal animal) {
+    public TestController( Animal animal) {
         this.animal = animal;
     }
 
