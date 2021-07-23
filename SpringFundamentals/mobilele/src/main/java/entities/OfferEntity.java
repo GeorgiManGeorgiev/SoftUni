@@ -25,7 +25,8 @@ public class OfferEntity extends BaseEntity {
     private ModelEntity model;
 
 
-    //TODO seller
+@ManyToOne
+private UserEntity user;
 
     public EngineEnum getEngine() {
         return engine;
@@ -99,6 +100,15 @@ public class OfferEntity extends BaseEntity {
         return this;
     }
 
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public OfferEntity setUser(UserEntity user) {
+        this.user = user;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "OfferEntity{" +
@@ -113,6 +123,7 @@ public class OfferEntity extends BaseEntity {
                 ", transmission=" + transmission +
                 ", year=" + year +
                 ", model=" + model +
+                ", user=" + user +
                 '}';
     }
 }
