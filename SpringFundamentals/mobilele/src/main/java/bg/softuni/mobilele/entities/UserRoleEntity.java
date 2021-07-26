@@ -1,20 +1,18 @@
-package entities;
+package bg.softuni.mobilele.entities;
 
-import entities.enums.UserRoleEnum;
+import bg.softuni.mobilele.entities.enums.UserRoleEnum;
 
 import javax.persistence.*;
-
 @Entity
-@Table(name = "user-roles")
+@Table(name = "user_roles")
 public class UserRoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
-
 
     public Long getId() {
         return id;

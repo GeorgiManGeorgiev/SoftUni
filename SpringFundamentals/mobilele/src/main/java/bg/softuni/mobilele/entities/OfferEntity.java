@@ -1,8 +1,7 @@
-package entities;
+package bg.softuni.mobilele.entities;
 
-import entities.enums.EngineEnum;
-import entities.enums.TransmissionEnum;
-import org.springframework.ui.Model;
+import bg.softuni.mobilele.entities.enums.EngineEnum;
+import bg.softuni.mobilele.entities.enums.TransmissionEnum;
 
 import javax.persistence.*;
 

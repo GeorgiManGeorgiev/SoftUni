@@ -1,6 +1,4 @@
-package entities;
-
-import entities.enums.UserRoleEnum;
+package bg.softuni.mobilele.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,8 +15,9 @@ public class UserEntity extends BaseEntity {
 
 
 
+
     @Enumerated(EnumType.STRING)
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<UserRoleEntity> userRoles;
 
 
