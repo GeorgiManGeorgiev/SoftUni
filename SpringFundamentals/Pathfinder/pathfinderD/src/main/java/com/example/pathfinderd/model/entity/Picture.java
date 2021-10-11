@@ -18,7 +18,7 @@ public class Picture extends BaseEntity {
     public Picture() {
     }
 
-    @Column
+    @Column(nullable = false)
     public String getTitle() {
         return title;
     }
