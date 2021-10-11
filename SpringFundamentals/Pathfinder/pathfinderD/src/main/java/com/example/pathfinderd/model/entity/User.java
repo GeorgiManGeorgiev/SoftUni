@@ -80,7 +80,7 @@ public class User extends BaseEntity {
         return this;
     }
 
-    @Column
+    @Column(nullable = false,unique = true)
     public String getUsername() {
         return username;
     }
