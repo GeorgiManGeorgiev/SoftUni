@@ -82,8 +82,5 @@ public class ModelEntity extends BaseEntity{
     return this;
   }
 
-  @PrePersist
-  public void beforeCreate() {
-    setCreated(Instant.now());
-  }
+
 }
