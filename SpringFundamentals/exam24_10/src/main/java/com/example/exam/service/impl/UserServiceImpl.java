@@ -3,10 +3,10 @@ package com.example.exam.service.impl;
 import com.example.exam.model.entity.Ship;
 import com.example.exam.model.entity.User;
 import com.example.exam.model.service.UserServiceModel;
+import com.example.exam.repository.ShipRepository;
 import com.example.exam.repository.UserRepository;
 import com.example.exam.service.UserService;
 import com.example.exam.util.CurrentUser;
-import com.example.exam.view.UserViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,13 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final ShipRepository shipRepository;
     private final ModelMapper modelMapper;
     private final CurrentUser currentUser;
 
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, CurrentUser currentUser) {
+    public UserServiceImpl(UserRepository userRepository, ShipRepository shipRepository, ModelMapper modelMapper, CurrentUser currentUser) {
         this.userRepository = userRepository;
+        this.shipRepository = shipRepository;
         this.modelMapper = modelMapper;
         this.currentUser = currentUser;
     }

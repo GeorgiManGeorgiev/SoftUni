@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -45,15 +46,36 @@ public class ShipServiceImpl implements ShipService {
 
     @Override
     public List<ShipViewModel> getAllShips() {
-        List<Ship> allShips = shipRepository.getAllShips();
-        allShips.stream().map(ship ->
-                modelMapper.map(ship, ShipServiceModel.class)
-        ).collect(Collectors.toList());
-
-        return allShips.stream().map(shipServiceModel ->
+        return shipRepository.getAllShips().stream().map(shipServiceModel ->
                 modelMapper.map(shipServiceModel, ShipViewModel.class)
         ).collect(Collectors.toList());
 
+    }
+
+    @Override
+    public List<ShipViewModel> getShipsByUserId(Long id) {
+
+
+        return shipRepository.getShipsByUserId(id).map(ships -> ships.stream().map(ship -> modelMapper.map(ship, ShipViewModel.class)).collect(Collectors.toList())).orElse(null);
+    }
+
+    @Override
+    public List<ShipViewModel> getShipsOfOtherUsers(Long id) {
+
+        return shipRepository.getShipsOfOtherUsers(id).map(ships -> ships.stream().map(ship -> modelMapper.map(ship, ShipViewModel.class)).collect(Collectors.toList())).orElse(null);
+    }
+
+    @Override
+    public void makeDamageFromShipToShip(Long attackerShipId, Long defenderShipId) {
+        Ship attackerShip = shipRepository.getShipById(attackerShipId);
+        Ship defenderShip = shipRepository.getShipById(defenderShipId);
+
+        defenderShip.setHealth(defenderShip.getHealth() - attackerShip.getPower());
+        if (defenderShip.getHealth() <= 0) {
+            shipRepository.delete(defenderShip);
+        } else {
+            shipRepository.save(defenderShip);
+        }
     }
 
 
